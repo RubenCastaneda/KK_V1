@@ -1,5 +1,8 @@
 {
-    "build": "npm install && npm run build",
-    "start": "npx serve -s build"
+  "build": {
+    "cmd": "npm install && npm run build"
+  },
+  "start": {
+    "cmd": "npx serve -s build"
   }
-  
+}
