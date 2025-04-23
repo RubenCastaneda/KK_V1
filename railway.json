@@ -1,6 +1,6 @@
 {
   "build": {
-    "cmd": "npm install && npm run build"
+    "cmd": "npm install --legacy-peer-deps && npm run build"
   },
   "start": {
     "cmd": "npx serve -s build"
