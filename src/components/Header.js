@@ -70,12 +70,12 @@ export default function Header() {
       <LogoContainer>
         {/* Both logos are rendered, but only one is visible at a time */}
         <Logo
-          src="/assets/logo_wht.png"
+          src="/iamges/logo_wht.png"
           alt="KK Logo White"
           style={{ opacity: scrolled ? 0 : 1, position: 'absolute' }}
         />
         <Logo
-          src="/assets/logo_blk.png"
+          src="/images/logo_blk.png"
           alt="KK Logo Black"
           style={{ opacity: scrolled ? 1 : 0 }}
         />

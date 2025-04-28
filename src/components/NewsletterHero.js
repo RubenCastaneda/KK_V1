@@ -4,7 +4,7 @@ const HeroWrapper = styled.section`
   height: 60vh;
   background: 
     linear-gradient(to bottom, rgb(255, 255, 255), #000),
-    url('/assets/newsletter-bg.jpg') center/cover no-repeat;
+    url('/images/newsletter-bg.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
