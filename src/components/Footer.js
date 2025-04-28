@@ -55,9 +55,6 @@ const Footer = () => {
         <Row className="my-3">
           <Col>
             <a href="/about" style={linkStyle}>About Us</a><br />
-            <a href="/faq" style={linkStyle}>FAQ</a><br />
-            <a href="/orders" style={linkStyle}>My Orders</a><br />
-            <a href="/contact" style={linkStyle}>Contact Us</a>
           </Col>
         </Row>
         <Row>

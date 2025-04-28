@@ -22,21 +22,21 @@ function HomePage() {
       title: 'KK Beauty\'s Selection',
       subtitle: 'Our best products chosen by our experts',
       backgroundImage: '/images/chatprod.png',
-      buttonText: 'View Selection',
-      onButtonClick: () => navigate('/new-page')
+      buttonText: 'Coming Soon',
+      onButtonClick: () => navigate('')
     },
     {
       title: 'Build Your Own Routine',
       subtitle: 'Build a routine spesialized for your skin type and needs',
       backgroundImage: '/images/White1.png',
       buttonText: 'Coming Soon',
-      onButtonClick: () => navigate('/new-page')
+      onButtonClick: () => navigate('')
     },
     {
       title: 'About Us',
       subtitle: 'Learn more about our story and our mission to provide the best skincare products.',
       backgroundImage: '/images/Blue1.png',
-      buttonText: 'KK Beauty Lab',
+      buttonText: 'See More',
       onButtonClick: () => navigate('/about') // ✅ UPDATED
     }
   ], [navigate]);
