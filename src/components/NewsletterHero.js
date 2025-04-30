@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const HeroWrapper = styled.section`
-  height: 60vh;
+  min-height: 100vh;
+  height: auto;
   background: 
     linear-gradient(to bottom, rgb(255, 255, 255), #000),
     url('/images/newsletter-bg.jpg') center/cover no-repeat;
@@ -12,8 +13,12 @@ const HeroWrapper = styled.section`
   font-family: 'Playfair Display', serif;
   color: white;
   padding: 2rem;
+  
+  @media (max-width: 768px) {
+    min-height: 80vh;
+    padding: 1rem;
+  }
 `;
-
 
 const NewsletterBox = styled.div`
   background: rgba(0, 0, 0, 0);

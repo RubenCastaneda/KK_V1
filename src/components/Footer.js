@@ -5,7 +5,7 @@ const Footer = () => {
   const sharedFont = `'Playfair Display', serif`;
 
   const footerStyle = {
-    position: 'fixed',
+    position: '',
     bottom: 0,
     left: 0,
     width: '100%',

@@ -1,6 +1,6 @@
-import ProductGroupsHero from './ProductGroupsHero.js';
-import ScrollSection from './ScrollSection.js';
-import Footer from './Footer.js';
+import ProductGroupsHero from '../components/ProductGroupsHero.js';
+import ScrollSection from '../components/ScrollSection.js';
+import Footer from '../components/Footer.js';
 import { Container } from 'react-bootstrap';
 
 export default function AboutUsPage() {
@@ -47,10 +47,7 @@ export default function AboutUsPage() {
         <div style={{ height: '0' }} />
       </div>
 
-      {/* Footer reveal */}
-      <div style={{ position: 'absolute', bottom: 0, width: '100%', zIndex: 0 }}>
-        <Footer />
-      </div>
+      
     </div>
   );
 }
