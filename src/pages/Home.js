@@ -9,12 +9,16 @@ function Home() {
   const heroData = useMemo(() => [
     {
       title: 'KK Beauty Lab',
-      subtitle: 'Elavate your natural beauty',
-      backgroundImage: '/images/Main-p1.jpg',
+      subtitle: 'Elevate your natural beauty',
+      backgroundImages: [
+        '/images/Main-p1.jpg',
+        '/images/chatprod.png',
+        '/images/Main-p3.jpg'
+      ],
       path: null
     },
     {
-      title: 'KK Beauty\'s Selection',
+      title: "KK Beauty's Selection",
       subtitle: 'Our best products chosen by our experts',
       backgroundImage: '/images/chatprod.png',
       buttonText: 'Coming Soon',
@@ -44,6 +48,7 @@ function Home() {
           title={hero.title}
           subtitle={hero.subtitle}
           backgroundImage={hero.backgroundImage}
+          backgroundImages={hero.backgroundImages}
           buttonText={hero.buttonText}
           onButtonClick={() => {
             if (hero.path) {
@@ -53,7 +58,6 @@ function Home() {
         />
       ))}
 
-      {/* Newsletter section placed OUTSIDE the heroes mapping */}
       <NewsletterHero />
     </div>
   );

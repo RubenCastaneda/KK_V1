@@ -1,67 +1,106 @@
-import { Container, Button } from 'react-bootstrap';
+import React from 'react';
+import styled from 'styled-components';
 
-function ProductGroupsHero({ title, subtitle, backgroundImage, buttonText, onButtonClick }) {
-  const hasBackgroundImage = Boolean(backgroundImage);
+const HeroWrapper = styled.section`
+  width: 100%;
+  height: 85vh;
+  position: relative;
+  overflow: hidden;
+`;
+
+const StaticBackground = styled.div`
+  width: 100%;
+  height: 100%;
+  background-image: url(${props => props.image});
+  background-size: cover;
+  background-position: center;
+`;
+
+const ScrollWrapper = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+const ScrollImage = styled.div`
+  flex: 0 0 100%;
+  height: 100%;
+  background-image: url(${props => props.image});
+  background-size: cover;
+  background-position: center;
+  scroll-snap-align: start;
+`;
+
+const Content = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: white;
+  font-family: 'Playfair Display', serif;
+
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    padding: 0.75rem 1.5rem;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e3e3e3;
+    }
+  }
+`;
+
+export default function ProductGroupsHero({
+  title,
+  subtitle,
+  backgroundImage,
+  backgroundImages,
+  buttonText,
+  onButtonClick
+}) {
+  const useSlider = backgroundImages && backgroundImages.length > 1;
 
   return (
-    <div
-      style={{
-        background: hasBackgroundImage
-          ? `url(${backgroundImage}) center/cover no-repeat`
-          : '#ffffff', // fallback white
-        width: '100%',
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        padding: '2rem',
-      }}
-    >
-      <Container>
-        <h1
-          style={{
-            color: hasBackgroundImage ? 'white' : 'black',
-            textShadow: hasBackgroundImage ? '2px 2px 12px rgba(0,0,0,0.8)' : 'none',
-            fontSize: '4rem',
-            fontFamily: `'Playfair Display', serif`,
-            fontWeight: '200',
-            marginBottom: '1rem',
-            textTransform: 'uppercase',
-            letterSpacing: '1px',
-          }}
-        >
-          {title}
-        </h1>
-        <p
-          className="lead"
-          style={{
-            color: hasBackgroundImage ? 'white' : 'black',
-            textShadow: hasBackgroundImage ? '1px 1px 10px rgba(0,0,0,0.7)' : 'none',
-            fontSize: '1.5rem',
-            fontWeight: '200',
-            fontFamily: `'Playfair Display', serif`,
-          }}
-        >
-          {subtitle}
-        </p>
+    <HeroWrapper>
+      {useSlider ? (
+        <ScrollWrapper>
+          {backgroundImages.map((img, idx) => (
+            <ScrollImage key={idx} image={img} />
+          ))}
+        </ScrollWrapper>
+      ) : (
+        <StaticBackground image={backgroundImage || backgroundImages?.[0]} />
+      )}
+      <Content>
+        <h1>{title}</h1>
+        <p>{subtitle}</p>
         {buttonText && (
-          <Button
-            variant={hasBackgroundImage ? 'light' : 'dark'}
-            onClick={onButtonClick}
-            style={{
-              marginTop: '1.5rem',
-              padding: '0.75rem 2rem',
-              fontWeight: '100',
-              fontFamily: `'DM Sans', sans-serif`,
-            }}
-          >
+          <button onClick={onButtonClick}>
             {buttonText}
-          </Button>
+          </button>
         )}
-      </Container>
-    </div>
+      </Content>
+    </HeroWrapper>
   );
 }
-
-export default ProductGroupsHero;
