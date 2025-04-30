@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const HeroWrapper = styled.section`
@@ -8,34 +8,17 @@ const HeroWrapper = styled.section`
   overflow: hidden;
 `;
 
-const StaticBackground = styled.div`
+const SlideImage = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-image: url(${props => props.image});
   background-size: cover;
   background-position: center;
-`;
-
-const ScrollWrapper = styled.div`
-  display: flex;
-  height: 100%;
-  width: 100%;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
-
-const ScrollImage = styled.div`
-  flex: 0 0 100%;
-  height: 100%;
-  background-image: url(${props => props.image});
-  background-size: cover;
-  background-position: center;
-  scroll-snap-align: start;
+  opacity: ${props => (props.active ? 1 : 0)};
+  transition: opacity 1s ease-in-out;
 `;
 
 const Content = styled.div`
@@ -79,19 +62,29 @@ export default function ProductGroupsHero({
   buttonText,
   onButtonClick
 }) {
-  const useSlider = backgroundImages && backgroundImages.length > 1;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = backgroundImages && backgroundImages.length > 0
+    ? backgroundImages
+    : backgroundImage
+      ? [backgroundImage]
+      : [];
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [images]);
 
   return (
     <HeroWrapper>
-      {useSlider ? (
-        <ScrollWrapper>
-          {backgroundImages.map((img, idx) => (
-            <ScrollImage key={idx} image={img} />
-          ))}
-        </ScrollWrapper>
-      ) : (
-        <StaticBackground image={backgroundImage || backgroundImages?.[0]} />
-      )}
+      {images.map((img, idx) => (
+        <SlideImage key={idx} image={img} active={idx === currentIndex} />
+      ))}
+
       <Content>
         <h1>{title}</h1>
         <p>{subtitle}</p>
