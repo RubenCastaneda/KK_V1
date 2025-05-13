@@ -13,7 +13,7 @@ function Home() {
       backgroundImages: [
         '/images/Main-p1.jpg',
         '/images/chatprod.png',
-        '/images/Blue1.png'
+        '/images/blue1.png'
       ],
       path: null
     },
