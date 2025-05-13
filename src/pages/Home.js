@@ -12,7 +12,7 @@ function Home() {
       subtitle: 'Elevate your natural beauty',
       backgroundImages: [
         '/images/Main-p1.jpg',
-        '/images/chatprod.png',
+        '/images/Chatprod.png',
         '/images/blue1.png'
       ],
       path: null
@@ -20,21 +20,21 @@ function Home() {
     {
       title: "KK Beauty's Selection",
       subtitle: 'Our best products chosen by our experts',
-      backgroundImage: '/images/chatprod.png',
+      backgroundImage: '/images/Chatprod.png',
       buttonText: 'Coming Soon',
       path: null
     },
     {
       title: 'Build Your Own Routine',
       subtitle: 'Build a routine specialized for your skin type and needs',
-      backgroundImage: '/images/White1.png',
+      backgroundImage: '/images/white1.png',
       buttonText: 'Coming Soon',
       path: null
     },
     {
       title: 'About Us',
       subtitle: 'Discover the heart and story behind KK Beauty Lab',
-      backgroundImage: '/images/Blue1.png',
+      backgroundImage: '/images/blue1.png',
       buttonText: 'Learn More',
       path: '/about'
     }
