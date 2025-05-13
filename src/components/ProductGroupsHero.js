@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 
 const HeroWrapper = styled.section`
@@ -63,11 +63,12 @@ export default function ProductGroupsHero({
   onButtonClick
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = backgroundImages && backgroundImages.length > 0
-    ? backgroundImages
-    : backgroundImage
-      ? [backgroundImage]
-      : [];
+
+  const images = useMemo(() => {
+    if (backgroundImages && backgroundImages.length > 0) return backgroundImages;
+    if (backgroundImage) return [backgroundImage];
+    return [];
+  }, [backgroundImages, backgroundImage]);
 
   useEffect(() => {
     if (images.length <= 1) return;

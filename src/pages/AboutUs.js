@@ -1,6 +1,5 @@
 import ProductGroupsHero from '../components/ProductGroupsHero.js';
 import ScrollSection from '../components/ScrollSection.js';
-import Footer from '../components/Footer.js';
 import { Container } from 'react-bootstrap';
 
 export default function AboutUsPage() {
