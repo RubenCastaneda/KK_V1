@@ -5,18 +5,17 @@ const Footer = () => {
   const sharedFont = `'Playfair Display', serif`;
 
   const footerStyle = {
-    position: '',
+    position: 'relative',
     bottom: 0,
     left: 0,
     width: '100%',
     backgroundColor: '#000',
     color: '#fff',
-    padding: '10px 0',
+    padding: '20px 0',
     fontSize: '0.9rem',
     textAlign: 'center',
     zIndex: 0,
-    pointerEvents: 'none',
-    fontFamily: sharedFont, // apply to entire footer
+    fontFamily: sharedFont,
   };
 
   const linkStyle = {
@@ -31,6 +30,7 @@ const Footer = () => {
     color: '#fff',
     margin: '0 10px',
     textDecoration: 'none',
+    transition: 'color 0.3s',
     fontFamily: sharedFont,
   };
 
@@ -40,7 +40,7 @@ const Footer = () => {
     fontSize: '1.5rem',
     textDecoration: 'none',
     display: 'inline-block',
-    marginBottom: '20px',
+    marginBottom: '10px',
     fontFamily: sharedFont,
   };
 
@@ -49,18 +49,21 @@ const Footer = () => {
       <Container>
         <Row>
           <Col>
-            <a href="/" style={logoStyle}>Your Logo</a>
+            <a href="/" style={logoStyle}>KK Beauty Lab</a>
+            <p style={{ fontStyle: 'italic', fontSize: '1rem' }}>
+              Elevate your natural beauty — luxurious skincare that enhances what’s already perfect
+            </p>
           </Col>
         </Row>
         <Row className="my-3">
           <Col>
-            <a href="/about" style={linkStyle}>About Us</a><br />
+            <a href="/about" style={linkStyle}>About Us</a>
           </Col>
         </Row>
         <Row>
           <Col>
-            <a href="https://facebook.com" style={socialLinkStyle}>Facebook</a>
-            <a href="https://instagram.com" style={socialLinkStyle}>Instagram</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>Facebook</a>
+            <a href="https://www.instagram.com/kkbeautylab_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>Instagram</a>
           </Col>
         </Row>
       </Container>
