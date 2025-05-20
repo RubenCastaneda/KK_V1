@@ -60,7 +60,6 @@ const Footer = () => {
         <Row>
           <Col>
             <a href="https://facebook.com" style={socialLinkStyle}>Facebook</a>
-            <a href="https://twitter.com" style={socialLinkStyle}>Twitter</a>
             <a href="https://instagram.com" style={socialLinkStyle}>Instagram</a>
           </Col>
         </Row>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const HeroWrapper = styled.section`
   width: 100%;
-  height: 85vh;
+  height: 100vh;
   position: relative;
   overflow: hidden;
 `;

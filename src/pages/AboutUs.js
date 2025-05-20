@@ -6,12 +6,12 @@ export default function AboutUsPage() {
   return (
     <div style={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
       {/* Scrollable content */}
-      <div style={{ paddingBottom: '38vh', position: 'relative', zIndex: 1 }}>
+      <div style={{ paddingBottom: '0vh', position: 'relative', zIndex: 1 }}>
         {/* Hero Section */}
         <ProductGroupsHero
           title="Our Story Begins with Beauty"
           subtitle="At KK Beauty Lab, we blend science and luxury to elevate your skincare ritual."
-          backgroundImage="/images/prod_1.jpg"
+          backgroundImage="/images/home_img3o.jpg"
         />
 
         {/* About Section */}
@@ -33,13 +33,12 @@ export default function AboutUsPage() {
         </Container>
 
         {/* Optional Scroll Section (e.g. testimonials or values) */}
-        <ScrollSection />
 
         {/* Final Wrap-up Section */}
         <ProductGroupsHero
           title="Rooted in Science, Refined in Beauty"
           subtitle="Our vision is clear — empower every individual to glow confidently."
-          backgroundImage="" // blank = white background
+          backgroundImage="/images/home_img4o.jpg" // blank = white background
         />
 
         {/* Footer Spacer */}
