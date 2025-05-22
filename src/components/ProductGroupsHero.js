@@ -3,21 +3,14 @@ import styled from 'styled-components';
 
 const HeroWrapper = styled.section`
   width: 100%;
-  height: 100vh;
   position: relative;
   overflow: hidden;
 `;
 
-const SlideImage = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
+const SlideImage = styled.img`
   width: 100%;
-  height: 100%;
-  background-image: url(${props => props.image});
-  background-size: cover;
-  background-position: center;
-  opacity: ${props => (props.active ? 1 : 0)};
+  height: auto;
+  display: ${props => (props.active ? 'block' : 'none')};
   transition: opacity 1s ease-in-out;
 `;
 
@@ -28,6 +21,8 @@ const Content = styled.div`
   transform: translateY(-50%);
   color: white;
   font-family: 'Playfair Display', serif;
+  z-index: 2;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
 
   h1 {
     font-size: 4rem;
@@ -50,6 +45,16 @@ const Content = styled.div`
 
     &:hover {
       background-color: #e3e3e3;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1rem;
     }
   }
 `;
@@ -83,7 +88,7 @@ export default function ProductGroupsHero({
   return (
     <HeroWrapper>
       {images.map((img, idx) => (
-        <SlideImage key={idx} image={img} active={idx === currentIndex} />
+        <SlideImage key={idx} src={img} alt={`slide-${idx}`} active={idx === currentIndex} />
       ))}
 
       <Content>
